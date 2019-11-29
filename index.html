@@ -252,6 +252,7 @@ startChart();
       
       $('#nigeria-map').JSMaps({
         map: 'nigeria',
+        stateClickAction: 'none',
         onStateClick: function(data){
            generateChart(data.name.toLowerCase());
           console.log(data.name);
