@@ -62,14 +62,14 @@ h4{
        background: var(--lightfill);
        
 }
-.navigation .navigation-wrap{
+.navigation .navigation_wrap{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 160px;
 }
 
-.navigation-menu{
+.navigation_menu{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,15 +79,17 @@ h4{
 .navigation li { margin-right: 26px; }
 
 .navigation li a{
-    color: var var(--gray-3);
+    color: var(--gray-3);
     text-decoration: none;
+}
+
+.navigation li a:hover{
+    color: var(--gray-1);
 }
 
 .navigation li:last-child{
     margin-right: 0;
 }
-
-
 
 
 
@@ -126,6 +128,33 @@ h4{
 
 /* Footer */
 
+.footer{
+    height: 274px;
+    text-align: center;
+    padding-top: 80px;
+}
 
+.footer_copyright{ padding-top: 70px;  }
 
+.footer_copyright--bold a{
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--gray-1)
+}
 
+.footer_svg {
+   fill: none;
+}
+.footer_svg path{
+    fill: var(--gray-3);
+}
+.footer_svg circle{
+    stroke: var(--gray-3);
+}
+
+.footer_svg:hover path{
+    fill: var(--gray-1);
+}
+.footer_svg:hover circle{
+    stroke: var(--gray-1);
+}
