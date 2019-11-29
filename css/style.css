@@ -142,7 +142,7 @@ h4{
 }
 
 .map-wrapper {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     align-items: center;
     padding: 3rem;
@@ -161,16 +161,8 @@ h4{
 }
 
 /* Footer */
-<<<<<<< HEAD
-
-.footer{
-    height: 274px;
-    text-align: center;
-    padding-top: 80px;
-=======
 .jsmaps-text{
     display: none !important;
->>>>>>> 69b0a812423fe67c1ae64be34d0fc417c807c8bf
 }
 
 .footer_copyright{ padding-top: 70px;  }
@@ -197,3 +189,9 @@ h4{
 .footer_svg:hover circle{
     stroke: var(--gray-1);
 }
+
+.jsmaps> svg{
+    height: 100% !important;
+    width: 100% !important;
+}
+

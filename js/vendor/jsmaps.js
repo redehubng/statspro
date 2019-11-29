@@ -220,7 +220,7 @@
       /////////////////////////////
       var mapWidth = config.mapWidth;
       var mapHeight = config.mapHeight;
-      var ratio = mapWidth / mapHeight;
+      var ratio =  mapWidth / mapHeight;
       
       // Pan/zoom
       if (config.enablePanZoom) {
@@ -598,7 +598,7 @@
         if (config.stateClickAction === 'text') {
 
           //Force text to bottom on mobile
-          textPosition = winWidth >= 767 ? config.textPosition : 'bottom';
+          textPosition = winWidth >= 1000 ? config.textPosition : 'bottom';
 
           if (textPosition === 'bottom') {
             mapWidth = containerWidth;
@@ -894,31 +894,31 @@
     /////////////////////////////
     // reDraw event listener
     /////////////////////////////
-    mapWrapper.on('reDraw', function(_, data) {
-      if (!data) {
-        return;
-      }
-      if (data.config) {
-        config = $.extend(config, data.config);
-      }
-      if (panZoom && config.retainPanZoomOnRedraw) {
-        config.initialZoom = panZoom.getCurrentZoom();
-        config.initialMapX = panZoom.getCurrentPosition().x;
-        config.initialMapY = panZoom.getCurrentPosition().y;
-      }
-      if (data.pins) {
-        pins = data.pins;
-      }
-      if (data.paths) {
-        paths = data.paths;
-      }
-      if (preloader && preloader.length) {
-        preloader.fadeIn('fast', clearMap);
-      }
-      else {
-        clearMap();
-      }
-    });
+    // mapWrapper.on('reDraw', function(_, data) {
+    //   if (!data) {
+    //     return;
+    //   }
+    //   if (data.config) {
+    //     config = $.extend(config, data.config);
+    //   }
+    //   if (panZoom && config.retainPanZoomOnRedraw) {
+    //     config.initialZoom = panZoom.getCurrentZoom();
+    //     config.initialMapX = panZoom.getCurrentPosition().x;
+    //     config.initialMapY = panZoom.getCurrentPosition().y;
+    //   }
+    //   if (data.pins) {
+    //     pins = data.pins;
+    //   }
+    //   if (data.paths) {
+    //     paths = data.paths;
+    //   }
+    //   if (preloader && preloader.length) {
+    //     preloader.fadeIn('fast', clearMap);
+    //   }
+    //   else {
+    //     clearMap();
+    //   }
+    // });
 
     /////////////////////////////
     // Map is ready
