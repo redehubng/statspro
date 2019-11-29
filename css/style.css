@@ -1,3 +1,20 @@
+:root{
+    --primary: #0C482B;
+    --secondary: #15B6DA;
+    --lightfill: #F1F4F2;
+    --gray-1: #333333;
+    --gray-2: #4f4f4f;
+    --gray-3: #828282;
+    --white: #fff;
+
+    /* typography */
+    --h1: 56px;
+    --h2: 40px;
+    --h3: 28px;
+    --h4: 20px;
+    --text: 16px;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -5,26 +22,55 @@
 }
 
 html{
-    
-    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
 }
 
-.chartVp{
-    display: flex;
-    justify-content: space-between;
+body{
+    background-color: var(--primary);
 }
 
-.chartVp--max{
-    width: 60%;
-    background: #000;
+
+/* typography */
+h1,h2,h3,h4{
+    color: var(--gray-1);
+}
+h1{
+    font-size: var(--h1);
+}
+h2{
+    font-size: var(--h2);
+}
+h3{
+    font-size: var(--h3);
+}
+h4{
+    font-size: var(--h4);
+}
+.text{
+    font-size: var(--text);
+    line-height: calc(1.4 * 16px);
 }
 
-.chartVp--min{
-    width: 40%;
-}
-.chartVp--min-details{
-    width: 80%;
-    height: 78%;
-    margin: 11% auto;
-}
+
+
+/* Navigation */
+
+
+
+
+/* Hero */
+
+
+
+/* Map and chart */
+
+
+
+
+/* Footer */
+
+
+
 
