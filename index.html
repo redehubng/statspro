@@ -59,14 +59,12 @@
          
         <div class="container">
               <div class="row">
-                <div class="col-md-6 pt-5 mt-3">
-                      
+                <div class="col-md-6 pt-5 mt-3">    
                     <div class="map">
                         <div class="jsmaps-wrapper" id="nigeria-map"></div>
                     </div>
-                      
-                  </div>
-                  <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
                       <div class="chart-wrapper">
                           <h2 class="chart-heading">Nigeria</h2>
                           <p class="text">People living under $1 in Nigeria</p>
@@ -79,9 +77,8 @@
                             <button class="bn btn-outline-light mapper">compare statistics</button>
                           </div>
                       </div>
-                  </div>
                 </div>
-               
+              </div> 
           </div>
        
         
@@ -144,20 +141,35 @@ let json = {};
 let response = fetch(url+'/js/data.json')
 .then(response => response.json())
 .then(function(result){
-    
-    console.log(result.Nigeria);
+   
+  
+   // for filtering based on predicate
+   Object.filter = (obj, predicate) => 
+    Object.keys(obj)
+          .filter( key => predicate(obj[key]) )
+          .reduce( (res, key) => (res[key] = obj[key], res), {} );
 
-    let data = Object.values(result.Nigeria);
+    nigeria_data = Object.filter(result.Nigeria, data => data > 0 )     
+
+    let data = Object.values(nigeria_data);
     let pointColor= data.map(item => {
         return '#A6CEE3'
     });
-    let dataSetType= Object.keys(result.Nigeria);
+
+   
+
+    
+    
+    let dataSetType= Object.keys(nigeria_data);
     
 
     // Function to generate chart
     let generateChart = (state)=>{
-      data = Object.values(result[state]);
-      dataSetType = Object.keys(result[state]);
+      state_data = Object.filter(result[state], data => data > 0 )
+    
+      data = Object.values(state_data);
+      dataSetType = Object.keys(state_data);
+      console.log(typeof dataSetType);
       startChart();
     }
 
