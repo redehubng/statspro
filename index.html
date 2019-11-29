@@ -144,13 +144,14 @@ let json = {};
 let response = fetch(url+'/js/data.json')
 .then(response => response.json())
 .then(function(result){
-    console.log(result);
+    
+    console.log(result.Nigeria);
 
-    let data = Object.values(result.nigeria);
+    let data = Object.values(result.Nigeria);
     let pointColor= data.map(item => {
         return '#A6CEE3'
     });
-    let dataSetType= Object.keys(result.nigeria);
+    let dataSetType= Object.keys(result.Nigeria);
     
 
     // Function to generate chart
@@ -162,69 +163,59 @@ let response = fetch(url+'/js/data.json')
 
 
     // Start chart function
-let startChart = ()=>{
+    let startChart = ()=>{
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-   type: 'line',
-   data: {
-       labels: dataSetType,
-       datasets: [{
-         label: '# of Votes',
-           data: data,
-           backgroundColor: [
-               'rgba(0,0,0,.0)',
-              
-             ],
-           borderColor: '#15B6DA',
-           pointBackgroundColor: pointColor,
-           borderWidth: 1
-       }]
-   },
-   options: {
-       scales: {
-           yAxes: [{
-               ticks: {
-                   beginAtZero: true,
-                   max: 100
-               }
-           }]
-       }
-   }
-});
-}
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: dataSetType,
+          datasets: [{
+            label: '# of Votes',
+              data: data,
+              backgroundColor: [
+                  'rgba(0,0,0,.0)',
+                  
+                ],
+              borderColor: '#15B6DA',
+              pointBackgroundColor: pointColor,
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                      max: 100
+                  }
+              }]
+          }
+      }
+    });
+    }
 
-startChart();
+    startChart();
+
+
+    $('#nigeria-map').JSMaps({
+      map: 'nigeria',
+      stateClickAction: 'none',
+      onStateClick: function(data){
+          generateChart(data.name);
+          console.log(data.name);
+      }
+
+    });
 
 })
 
 
 
 
-
-
-
 </script>
 
-<!-- Map js -->
 
-<script type="text/javascript">
-
-  $(function() {
-    
-    $('#nigeria-map').JSMaps({
-      map: 'nigeria',
-      stateClickAction: 'none',
-      onStateClick: function(data){
-          generateChart(data.name.toLowerCase());
-          console.log(data.name);
-      }
-
-    });
-
-  });
-  
-</script>
   
 </body>
 
