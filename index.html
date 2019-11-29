@@ -144,83 +144,55 @@ let json = {};
 let response = fetch(url+'/js/data.json')
 .then(response => response.json())
 .then(function(result){
-    // console.log(result);
-    json = result;
-})
-
-console.log(json);
-
-    // console.log(result);
-
-    // let data = Object.values(result.nigeria);
-    // let pointColor= data.map(item => {
-    //     return '#A6CEE3'
-    // });
-    // let dataSetType= Object.keys(result.nigeria);
     
+    console.log(result);
+    let data = Object.values(result.Nigeria);
+    let pointColor= data.map(item => {
+        return '#A6CEE3'
+    });
+    let dataSetType= Object.keys(result.Nigeria);
+    
+    
+    // Function to generate chart
+    let generateChart = (state)=>{
+      data = Object.values(result[state]);
+      dataSetType = Object.keys(result[state]);
+      startChart();
+    }
 
-    // // Function to generate chart
-    // let generateChart = (state)=>{
-    //   data = Object.values(result[state]);
-    //   dataSetType = Object.keys(result[state]);
-    //   startChart();
-    // }
 
 
 
 
-let dummy2 = [
-  {
-    '2019': '10',
-    '2016': '80',
-    '2015': '60',
-    '2014': '40',
-    '2013': '20',
-    '2012': '59',
-    'state' : 'nigeria'
-  },
-  {
-    '2019': '40',
-    '2016': '82',
-    '2015': '25',
-    '2014': '4',
-    '2013': '67',
-    '2012': '59',
-    'state' : 'kaduna'
-  },
-  {
-    '2019': '15',
-    '2016': '58',
-    '2015': '34',
-    '2014': '70',
-    '2013': '25',
-    '2012': '59',
-    'state' : 'lagos'
-  }
 
-];
+
 
 // function to filter data from array
-function filterJson(spec){
-  return dummy2.filter(item => item.state == spec);
-}
+// function filterJson(spec){
+//   return dummy2.filter(item => item.state == spec);
+// }
 
 
-let ng = filterJson('nigeria')
-let data = Object.values(ng[0]);
+// let ng = filterJson('nigeria')
+// let data = Object.values(ng[0]);
 
-let pointColor= data.map(item => {
-    return '#A6CEE3'
-});
-let dataSetType= Object.keys(ng[0]);
+// let pointColor= data.map(item => {
+//     return '#A6CEE3'
+// });
+// let dataSetType= Object.keys(ng[0]);
 
-// Function to generate chart
-let generateChart = (state)=>{
-  // let place = filterJson(place);
-  data = Object.values(state[0]);
-  dataSetType = Object.keys(state[0]);
-  startChart();
-}
+// // Function to generate chart
+// let generateChart = (state)=>{
+//   // let place = filterJson(place);
+//   data = Object.values(state[0]);
+//   dataSetType = Object.keys(state[0]);
+//   startChart();
+// }
+
+
+
+
+
     // Start chart function
 let startChart = ()=>{
 
@@ -286,8 +258,9 @@ let updateChartText = (name)=>{
           map: 'nigeria',
           stateClickAction: 'none',
           onStateClick: function(data){
-            let place = filterJson(data.name.toLowerCase());
-            generateChart(place);
+            // let place = filterJson(data.name.toLowerCase());
+            // generateChart(place);
+            generateChart(data.name);
           
             console.log(data.name);
 
@@ -298,6 +271,9 @@ let updateChartText = (name)=>{
 
     });
     
+
+})
+
 </script>
 
 
