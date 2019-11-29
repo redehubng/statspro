@@ -89,10 +89,36 @@ h4{
     text-align: center;
 }
 
+/* Brief info before map */
+
+.brief-info{
+    min-width: 90%;
+    margin: 0 auto;
+    padding: 2rem 2rem;
+    background-color: var(--lightfill);
+    color: var(--secondary);
+    margin: 4rem 0;
+    text-align: center;
+    border-radius: 5px;;
+}
+
 /* Map and chart */
 
 
+#map-chart{
+    min-height: 100vh;
+}
 
+.map-wrapper{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+}
+
+.map-wrapper .map{
+    height: 350px;
+}
 
 /* Footer */
 
