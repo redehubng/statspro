@@ -109,10 +109,13 @@ h4{
     min-height: 100vh;
 }
 
-.map-wrapper{
+.map-wrapper {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    padding: 3rem;
+}
+.chart-wrapper{
     padding: 3rem;
 }
 
