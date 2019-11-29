@@ -143,15 +143,21 @@
   <script src="js/vendor/nigeria.js" type="text/javascript"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
  <!-- Chart js -->
- <script>
 
 
-let url= window.location.origin;
+<script>
 
-let responses = fetch(url+'/js/data.json')
-.then(response => response.json())  ;
+const url= window.location.origin;
+let json = {};
+let response = fetch(url+'/js/data.json')
+.then(response => response.json())
+.then(function(result){
+    // console.log(result);
+    json = result;
+})
 
-console.log(responses);
+console.log(json);
+
 
 
 
@@ -191,7 +197,7 @@ let pointColor= data.map(item => {
 });
 let dataSetType= Object.keys(dummy.nigeria);
 
-
+// Function to generate chart
 let generateChart = (state)=>{
   data = Object.values(dummy[state]);
   dataSetType = Object.keys(dummy[state]);
@@ -199,14 +205,7 @@ let generateChart = (state)=>{
 }
 
 
-let btn = document.querySelector('.mapper');
-btn.addEventListener('click', () => {
-  let state = 'kaduna';
-  generateChart(state);
-});
-// let state = 'kaduna';
-
-
+// Start chart function
 
 let startChart = ()=>{
 
