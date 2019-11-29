@@ -160,6 +160,42 @@ let response = fetch(url+'/js/data.json')
       startChart();
     }
 
+
+    // Start chart function
+let startChart = ()=>{
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+   type: 'line',
+   data: {
+       labels: dataSetType,
+       datasets: [{
+         label: '# of Votes',
+           data: data,
+           backgroundColor: [
+               'rgba(0,0,0,.0)',
+              
+             ],
+           borderColor: '#15B6DA',
+           pointBackgroundColor: pointColor,
+           borderWidth: 1
+       }]
+   },
+   options: {
+       scales: {
+           yAxes: [{
+               ticks: {
+                   beginAtZero: true,
+                   max: 100
+               }
+           }]
+       }
+   }
+});
+}
+
+startChart();
+
 })
 
 
@@ -167,40 +203,7 @@ let response = fetch(url+'/js/data.json')
 
 
 
-// Start chart function
-let startChart = ()=>{
 
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-     type: 'line',
-     data: {
-         labels: dataSetType,
-         datasets: [{
-           label: '# of Votes',
-             data: data,
-             backgroundColor: [
-                 'rgba(0,0,0,.0)',
-                
-               ],
-             borderColor: '#15B6DA',
-             pointBackgroundColor: pointColor,
-             borderWidth: 1
-         }]
-     },
-     options: {
-         scales: {
-             yAxes: [{
-                 ticks: {
-                     beginAtZero: true,
-                     max: 100
-                 }
-             }]
-         }
-     }
- });
-}
-
-startChart();
 </script>
 
 <!-- Map js -->
