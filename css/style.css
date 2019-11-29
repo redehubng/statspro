@@ -152,7 +152,8 @@ h4{
 }
 
 .map-wrapper .map{
-    /* height: 350px; */
+    /* height: 100vh; */
+    width: 100%;
 }
 
 .chart-wrapper .chart{
@@ -161,16 +162,15 @@ h4{
 }
 
 /* Footer */
-<<<<<<< HEAD
 
 .footer{
     height: 274px;
     text-align: center;
     padding-top: 80px;
-=======
+    background: var(--lightfill);
+}
 .jsmaps-text{
     display: none !important;
->>>>>>> 69b0a812423fe67c1ae64be34d0fc417c807c8bf
 }
 
 .footer_copyright{ padding-top: 70px;  }
@@ -197,3 +197,4 @@ h4{
 .footer_svg:hover circle{
     stroke: var(--gray-1);
 }
+ 

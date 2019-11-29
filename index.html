@@ -59,8 +59,12 @@
          
         <div class="container">
               <div class="row">
-                  <div class="col-md-6">
-                      <div class="jsmaps-wrapper" id="nigeria-map"></div>
+                <div class="col-md-6">
+                      <div class="map-wrapper">
+                        <div class="map">
+                            <div class="jsmaps-wrapper" id="nigeria-map"></div>
+                          </div>
+                      </div>
                   </div>
                   <div class="col-md-6">
                       <div class="chart-wrapper">
@@ -141,6 +145,14 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
  <!-- Chart js -->
  <script>
+
+
+let url= window.location.origin;
+
+let responses = fetch(url+'/js/data.json')
+.then(response => response.json())  ;
+
+console.log(responses);
 
 
 
@@ -232,25 +244,6 @@ let startChart = ()=>{
 startChart();
   </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 <!-- Map js -->
 
   <script type="text/javascript">
@@ -260,6 +253,7 @@ startChart();
       $('#nigeria-map').JSMaps({
         map: 'nigeria',
         onStateClick: function(data){
+           generateChart(data.name.toLowerCase());
           console.log(data.name);
         }
 
