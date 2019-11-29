@@ -244,7 +244,7 @@ window.JSMaps.maps.nigeria = {
 		},
 		{
 			"enable": true,
-			"name": "Federal Capital Territory",
+			"name": "FCT",
 			"abbreviation": "FC",
 			"textX": 0,
 			"textY": 0,
