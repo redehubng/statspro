@@ -183,3 +183,16 @@ h4{
     stroke: var(--gray-1);
 }
  
+
+
+/* components */
+
+.btn-outline-fine{
+    border: 1px solid rgba(0,0,0,.1);
+    color: var(--primary);
+    transition: box-shadow .3s ease-in;
+}
+.btn-outline-fine:hover{
+   
+    box-shadow: 5px 10px 25px rgba(12, 72, 43, 0.17);
+}

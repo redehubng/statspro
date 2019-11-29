@@ -69,14 +69,14 @@
                   <div class="col-md-6">
                       <div class="chart-wrapper">
                           <h2 class="chart-heading">Nigeria</h2>
-                          <p class="text">People living under $1 in Nigeria</p>
+                          <p class="text chart-text">People living under $1 in Nigeria</p>
                           
                           <div class="chart">
                             <canvas id="myChart"  height="200"></canvas>                            
                           </div>
   
                           <div class="p-4">
-                            <button class="bn btn-outline-light mapper">compare statistics</button>
+                            <button class="btn btn-outline-fine float-right py-2">compare statistics</button>
                           </div>
                       </div>
                   </div>
@@ -157,51 +157,65 @@ let response = fetch(url+'/js/data.json')
     json = result;
 })
 
-console.log(json);
+// console.log(json);
 
 
 
 
 // point color;
 
-let dummy = {
-  nigeria: {
+
+
+let dummy2 = [
+  {
     '2019': '10',
     '2016': '80',
     '2015': '60',
     '2014': '40',
     '2013': '20',
+    '2012': '59',
+    'state' : 'nigeria'
   },
-  kaduna: {
-    '2019': '70',
-    '2016': '55',
-    '2015': '60',
-    '2014': '40',
-    '2013': '20',
+  {
+    '2019': '40',
+    '2016': '82',
+    '2015': '25',
+    '2014': '4',
+    '2013': '67',
+    '2012': '59',
+    'state' : 'kaduna'
   },
-  kogi: {
-    '2019': '10%',
-    '2016': '55%',
-    '2015': '60%',
-    '2014': '40%',
-    '2013': '20%',
+  {
+    '2019': '15',
+    '2016': '58',
+    '2015': '34',
+    '2014': '70',
+    '2013': '25',
+    '2012': '59',
+    'state' : 'lagos'
   }
 
+];
+
+// function to filter data from array
+function filterJson(spec){
+  return dummy2.filter(item => item.state == spec);
 }
 
-// console.log(dummy.Nigeria);
 
+let ng = filterJson('nigeria')
+let data = Object.values(ng[0]);
 
-let data = Object.values(dummy.nigeria);
 let pointColor= data.map(item => {
     return '#A6CEE3'
 });
-let dataSetType= Object.keys(dummy.nigeria);
+let dataSetType= Object.keys(ng[0]);
 
 // Function to generate chart
 let generateChart = (state)=>{
-  data = Object.values(dummy[state]);
-  dataSetType = Object.keys(dummy[state]);
+  // let place = filterJson(place);
+  data = Object.values(state[0]);
+  dataSetType = Object.keys(state[0]);
   startChart();
 }
 
@@ -240,28 +254,51 @@ let startChart = ()=>{
  });
 }
 
+// start chart
 startChart();
-  </script>
 
-<!-- Map js -->
 
-  <script type="text/javascript">
+// change chart text
 
+let updateChartText = (name)=>{
+
+    const heading = $('.chart-heading');
+    const text = $('.chart-text');
+
+    heading.text(name);
+    text.text(
+      `People living under $1 in ${name}`
+    )
+
+  
+}
+
+
+
+// Map
+  
     $(function() {
       
       $('#nigeria-map').JSMaps({
-        map: 'nigeria',
-        stateClickAction: 'none',
-        onStateClick: function(data){
-           generateChart(data.name.toLowerCase());
-          console.log(data.name);
-        }
+          map: 'nigeria',
+          stateClickAction: 'none',
+          onStateClick: function(data){
+            let place = filterJson(data.name.toLowerCase());
+            generateChart(place);
+          
+            console.log(data.name);
+
+            updateChartText(data.name);
+          }
 
       });
 
     });
     
-  </script>
+</script>
+
+
+
   
 </body>
 
