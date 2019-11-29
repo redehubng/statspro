@@ -120,7 +120,9 @@
       'selectElementDevices': ['mobile'],
       'selectElementDefaultText': 'Please select',
       onReady: function() {},
-      onStateClick: function() {},
+      onStateClick: function(e) {
+        console.log(e);
+      },
       onStateOver: function() {},
       onStateOut: function() {}
     }, options);
@@ -457,6 +459,7 @@
             // Trigger state click callback
             if ($.isFunction(settings.onStateClick)) {
               settings.onStateClick.call(this, target);
+              alert("clicked");
             }
 
           });
@@ -580,6 +583,7 @@
             // Trigger state click callback
             if ($.isFunction(settings.onStateClick)) {
               settings.onStateClick.call(this, target);
+              
             }
 
           });
@@ -877,6 +881,7 @@
           target.trigger('click');
         }
       });
+     
     });
 
     mapWrapper.on('stateUnClick', function() {
