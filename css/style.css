@@ -57,6 +57,36 @@ h4{
 
 /* Navigation */
 
+.navigation{
+       background: var(--lightfill);
+       
+}
+.navigation .navigation-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 160px;
+}
+
+.navigation-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.navigation li { margin-right: 26px; }
+
+.navigation li a{
+    color: var var(--gray-3);
+    text-decoration: none;
+}
+
+.navigation li:last-child{
+    margin-right: 0;
+}
+
+
 
 
 
