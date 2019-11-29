@@ -16,7 +16,8 @@ window.JSMaps.maps.nigeria = {
 			"hoverColor": "#E32F02",
 			"selectedColor": "#156e01",
 			"url": "http://jsmaps.io/",
-			"text": "<h1 id='rivers'>Rivers</h1><br /><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit 1946</p>",
+			// "text": '<h1 id=\'rivers\'>Rivers</h1><br /><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit 1946</p><div class="chartVp--min-details"><canvas id="myChart" width="400" height="400"></canvas></div>',
+			"text": '<div class="chartVp--min-details"><canvas id="myChart" width="400" height="400"></canvas></div>',
 			"path": "M280.5,553.7 L288.3,553.2 L287.4,554.7 L280.3,556.0 L274.9,555.8 L274.2,553.5 L277.7,552.4 Z M269.0,552.4 L273.4,552.7 L271.9,556.7 L264.5,559.2 L261.9,558.3 L266.9,551.8 Z M268.7,511.4 L269.6,516.4 L263.5,525.7 L264.2,530.3 L266.6,531.0 L273.8,530.0 L279.2,531.0 L283.1,533.6 L284.9,536.7 L285.3,540.3 L285.2,544.6 L285.1,546.3 L280.6,549.1 L272.2,545.9 L269.4,547.9 L273.2,550.1 L270.4,552.0 L265.0,545.7 L264.4,542.3 L261.9,542.7 L258.1,537.0 L259.6,542.7 L262.5,544.0 L264.3,552.2 L260.4,555.1 L256.4,556.0 L253.9,547.5 L255.2,545.5 L254.0,539.4 L251.2,541.4 L253.2,545.9 L252.3,553.1 L255.2,558.2 L252.0,559.6 L245.6,557.2 L243.3,551.2 L244.7,544.6 L242.2,543.4 L239.1,532.5 L237.0,532.5 L240.4,542.6 L243.5,546.2 L241.8,548.7 L244.2,558.5 L246.1,560.4 L240.5,561.7 L237.0,560.7 L237.4,546.8 L233.2,543.7 L231.8,539.7 L228.2,537.4 L221.4,539.3 L220.6,535.7 L217.6,533.4 L217.6,531.1 L221.3,524.0 L220.4,518.9 L223.8,510.8 L231.5,502.7 L229.5,500.1 L224.0,499.6 L223.0,497.0 L227.5,492.5 L230.7,480.2 L232.5,481.8 L234.4,481.9 L231.9,493.2 L236.5,494.2 L238.9,496.7 L237.6,504.8 L246.2,511.3 L254.5,511.9 Z"
 		},
 		{
@@ -501,3 +502,61 @@ window.JSMaps.maps.nigeria = {
 		}
 	]
 }
+
+///////////////////////////
+    /// adding the chart
+    ////////////////////////////
+
+    window.onload = function(){
+
+			
+			let chartfunc = () =>{
+
+			
+		
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+				datasets: [{
+					label: '# of Votes',
+					data: [12, 19, 3, 5, 2, 3],
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				}
+			}
+		
+		
+		
+
+		})
+	
+		}; let startchart = setTimeout(chartfunc, 1500);
+	};
+
+	

@@ -250,8 +250,12 @@
       //Set initial default text
       if (config.stateClickAction === 'text') {
         // Create text div
-        textArea = $('<div class="jsmaps-text"></div>').appendTo(mapWrapper);
+        textArea = $(`<div class="jsmaps-texts"> </div> `).appendTo(mapWrapper);
         textArea.html(config.defaultText);
+
+
+        const chart = `<div class="chartVp--min-details"><canvas id="myChart" width="400" height="400"></canvas></div>`;
+          // textArea.append(chart);
         // Handle text left
         if (config.textPosition === 'left') {
           map.css({
@@ -920,6 +924,9 @@
     // Map is ready
     /////////////////////////////
     settings.onReady.call(this);
+
+    
+
 
   };// End plugin
 
