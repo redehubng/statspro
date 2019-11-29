@@ -69,11 +69,27 @@ h4{
     height: 160px;
 }
 
+@media (max-width: 576px){
+
+    .navigation .navigation_wrap{
+        padding: 1rem 0;
+       display: block;
+    }
+
+}
+
 .navigation_menu{
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style: none;
+}
+@media (max-width: 576px){
+    .navigation_menu{
+       margin-top: 1rem;
+    }
+
+  
 }
 
 .navigation li { margin-right: 26px; }
@@ -114,6 +130,15 @@ h4{
 .hero-section .primary-heading{
     color: var(--white);
     font-family: 'Playfair Display', serif;
+}
+
+@media (max-width: 576px){
+    .hero-section .primary-heading{
+        color: var(--white);
+        font-family: 'Playfair Display', serif;
+        font-size: var(--h2);
+    }
+
 }
 
 .hero-section .sub-heading{
