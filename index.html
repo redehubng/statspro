@@ -126,16 +126,6 @@
       
   </div>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- <div class="chartVp--min-details">
-  </div> -->
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
   <script src="js/vendor/jsmaps-libs.js" type="text/javascript"></script>
@@ -148,16 +138,22 @@
 
 <script>
 
-const url= window.location.origin;
+const url = window.location;
+alert(url);
 let json = {};
 let response = fetch(url+'/js/data.json')
 .then(response => response.json())
 .then(function(result){
-    // console.log(result);
+    console.log(result);
     json = result;
 })
 
-console.log(json);
+$.getJSON( url +'/js/data.json', function( data ) {
+  alert("data gotten");
+  console.log(data);
+});
+
+console.log(url+'/js/data.json');
 
 
 
@@ -189,8 +185,6 @@ let dummy = {
 
 }
 
-// console.log(dummy.Nigeria);
-
 
 let data = Object.values(dummy.nigeria);
 let pointColor= data.map(item => {
@@ -207,7 +201,6 @@ let generateChart = (state)=>{
 
 
 // Start chart function
-
 let startChart = ()=>{
 
   var ctx = document.getElementById('myChart').getContext('2d');
@@ -241,27 +234,27 @@ let startChart = ()=>{
 }
 
 startChart();
-  </script>
+</script>
 
 <!-- Map js -->
 
-  <script type="text/javascript">
+<script type="text/javascript">
 
-    $(function() {
-      
-      $('#nigeria-map').JSMaps({
-        map: 'nigeria',
-        stateClickAction: 'none',
-        onStateClick: function(data){
-           generateChart(data.name.toLowerCase());
+  $(function() {
+    
+    $('#nigeria-map').JSMaps({
+      map: 'nigeria',
+      stateClickAction: 'none',
+      onStateClick: function(data){
+          generateChart(data.name.toLowerCase());
           console.log(data.name);
-        }
-
-      });
+      }
 
     });
-    
-  </script>
+
+  });
+  
+</script>
   
 </body>
 
