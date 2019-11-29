@@ -139,61 +139,32 @@
 <script>
 
 const url = window.location;
-alert(url);
+
 let json = {};
 let response = fetch(url+'/js/data.json')
 .then(response => response.json())
 .then(function(result){
     console.log(result);
-    json = result;
+
+    let data = Object.values(result.nigeria);
+    let pointColor= data.map(item => {
+        return '#A6CEE3'
+    });
+    let dataSetType= Object.keys(result.nigeria);
+    
+
+    // Function to generate chart
+    let generateChart = (state)=>{
+      data = Object.values(result[state]);
+      dataSetType = Object.keys(result[state]);
+      startChart();
+    }
+
 })
 
 
-console.log(json);
 
 
-
-
-// point color;
-
-let dummy = {
-  nigeria: {
-    '2019': '10',
-    '2016': '80',
-    '2015': '60',
-    '2014': '40',
-    '2013': '20',
-  },
-  kaduna: {
-    '2019': '70',
-    '2016': '55',
-    '2015': '60',
-    '2014': '40',
-    '2013': '20',
-  },
-  kogi: {
-    '2019': '10%',
-    '2016': '55%',
-    '2015': '60%',
-    '2014': '40%',
-    '2013': '20%',
-  }
-
-}
-
-
-let data = Object.values(dummy.nigeria);
-let pointColor= data.map(item => {
-    return '#A6CEE3'
-});
-let dataSetType= Object.keys(dummy.nigeria);
-
-// Function to generate chart
-let generateChart = (state)=>{
-  data = Object.values(dummy[state]);
-  dataSetType = Object.keys(dummy[state]);
-  startChart();
-}
 
 
 // Start chart function
