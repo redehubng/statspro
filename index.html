@@ -22,9 +22,8 @@
 </head>
 
 <body>
-
-
-  <div id="app">
+  
+    <div id="app">
       <!-- Navigation -->
       <nav class="navigation">
         <div class="container">
@@ -42,14 +41,52 @@
 
 
       <!-- Hero -->
-      <div id="hero" class="hero-section">
+      <section id="hero" class="hero-section">
           <h1 class="primary-heading">Nigerian statistics</h1>
           <p class="sub-heading text">showing statistics of people living under $1 from <br> 2001-2019</p>
-      </div>
+      </section>
 
+      <!-- Brief info before chart -->
+
+      <div class="container">
+          <div class="brief-info">
+              By selecting a state on the map you are shown the statistical information for that particular state
+          </div>
+      </div>
       <!-- Map and Chart -->
 
+      <section id="map-chart">
 
+          <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                      <div class="map-wrapper">
+                          <div class="map">
+                             <div class="jsmaps-wrapper" id="nigeria-map"></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="chart-wrapper">
+                          <h2 class="chart-heading">Nigeria</h2>
+                          <p class="text">People living under $1 in Nigeria</p>
+                          
+                          <div class="chart">
+                            <canvas id="myChart"  height="200"></canvas>                            
+                          </div>
+
+                          <div class="p-4">
+                            <button class="bn btn-outline-light mapper">compare statistics</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        
+      </section>
+      
+
+<<<<<<< HEAD
       <!-- Footer -->
       <footer class="footer">
       <div class="footer_social-icon">
@@ -85,6 +122,9 @@
         <h4><span class="footer_copyright--bold"><a href="index.html">Redehubng</a></span> &copy; 2016 &mdash; 2019 Privacy &mdash;Terms</h4>
       </div>
       </footer>
+=======
+      
+>>>>>>> 69b0a812423fe67c1ae64be34d0fc417c807c8bf
 
   </div>
   
@@ -96,9 +136,7 @@
   
   
   
-  <!-- <div class="jsmaps-wrapper" id="nigeria-map"></div> -->
   <!-- <div class="chartVp--min-details">
-    <canvas id="myChart" width="400" height="400"></canvas>
   </div> -->
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -109,45 +147,116 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
  <!-- Chart js -->
  <script>
-   var ctx = document.getElementById('myChart').getContext('2d');
-   var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-          datasets: [{
-            label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-  });
+
+
+
+// point color;
+
+let dummy = {
+  nigeria: {
+    '2019': '10',
+    '2016': '80',
+    '2015': '60',
+    '2014': '40',
+    '2013': '20',
+  },
+  kaduna: {
+    '2019': '70',
+    '2016': '55',
+    '2015': '60',
+    '2014': '40',
+    '2013': '20',
+  },
+  kogi: {
+    '2019': '10%',
+    '2016': '55%',
+    '2015': '60%',
+    '2014': '40%',
+    '2013': '20%',
+  }
+
+}
+
+// console.log(dummy.Nigeria);
+
+
+let data = Object.values(dummy.nigeria);
+let pointColor= data.map(item => {
+    return '#A6CEE3'
+});
+let dataSetType= Object.keys(dummy.nigeria);
+
+
+let generateChart = (state)=>{
+  data = Object.values(dummy[state]);
+  dataSetType = Object.keys(dummy[state]);
+  startChart();
+}
+
+
+let btn = document.querySelector('.mapper');
+btn.addEventListener('click', () => {
+  let state = 'kaduna';
+  generateChart(state);
+});
+// let state = 'kaduna';
+
+
+
+let startChart = ()=>{
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+     type: 'line',
+     data: {
+         labels: dataSetType,
+         datasets: [{
+           label: '# of Votes',
+             data: data,
+             backgroundColor: [
+                 'rgba(0,0,0,.0)',
+                
+               ],
+             borderColor: '#15B6DA',
+             pointBackgroundColor: pointColor,
+             borderWidth: 1
+         }]
+     },
+     options: {
+         scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero: true,
+                     max: 100
+                 }
+             }]
+         }
+     }
+ });
+}
+
+startChart();
   </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 <!-- Map js -->
 
   <script type="text/javascript">
@@ -155,7 +264,11 @@
     $(function() {
       
       $('#nigeria-map').JSMaps({
-        map: 'nigeria'
+        map: 'nigeria',
+        onStateClick: function(data){
+          console.log(data.name);
+        }
+
       });
 
     });

@@ -250,9 +250,10 @@
       //Set initial default text
       if (config.stateClickAction === 'text') {
         // Create text div
-        textArea = $('<div class="jsmaps-text"></div>').appendTo(mapWrapper);
+        textArea = "";// $(`<div class="jsmaps-texts"> </div> `).appendTo(mapWrapper);
         textArea.html(config.defaultText);
-        // Handle text left
+
+
         if (config.textPosition === 'left') {
           map.css({
             'left': 'auto',
@@ -453,6 +454,7 @@
             // Trigger state click callback
             if ($.isFunction(settings.onStateClick)) {
               settings.onStateClick.call(this, target);
+              alert("clicked");
             }
 
           });
@@ -576,6 +578,7 @@
             // Trigger state click callback
             if ($.isFunction(settings.onStateClick)) {
               settings.onStateClick.call(this, target);
+              
             }
 
           });
@@ -844,9 +847,9 @@
       if (mapWrapper.find('.jsmaps-mouse-position').length) {
         mapWrapper.find('.jsmaps-mouse-position').remove();
       }
-      if (mapWrapper.find('.jsmaps-text').length) {
-        mapWrapper.find('.jsmaps-text').remove();
-      }
+      // if (mapWrapper.find('.jsmaps-text').length) {
+      //   mapWrapper.find('.jsmaps-text').remove();
+      // }
       if (mapWrapper.siblings('.jsmaps-select').length) {
         mapWrapper.siblings('.jsmaps-select').remove();
       }
@@ -873,6 +876,7 @@
           target.trigger('click');
         }
       });
+     
     });
 
     mapWrapper.on('stateUnClick', function() {
@@ -920,6 +924,9 @@
     // Map is ready
     /////////////////////////////
     settings.onReady.call(this);
+
+    
+
 
   };// End plugin
 
