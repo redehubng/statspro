@@ -61,9 +61,9 @@
               <div class="row">
                 <div class="col-md-6">
                       <div class="map-wrapper">
-                        <div class="jsmaps-wrapper" id="nigeria-map"></div>
-                          <!-- <div class="map">
-                          </div> -->
+                        <div class="map">
+                            <div class="jsmaps-wrapper" id="nigeria-map"></div>
+                          </div>
                       </div>
                   </div>
                   <div class="col-md-6">
@@ -86,7 +86,6 @@
       </section>
       
 
-<<<<<<< HEAD
       <!-- Footer -->
       <footer class="footer">
       <div class="footer_social-icon">
@@ -122,9 +121,7 @@
         <h4><span class="footer_copyright--bold"><a href="index.html">Redehubng</a></span> &copy; 2016 &mdash; 2019 Privacy &mdash;Terms</h4>
       </div>
       </footer>
-=======
       
->>>>>>> 69b0a812423fe67c1ae64be34d0fc417c807c8bf
 
   </div>
   
@@ -147,6 +144,14 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
  <!-- Chart js -->
  <script>
+
+
+let url= window.location.origin;
+
+let responses = fetch(url+'/js/data.json')
+.then(response => response.json())  ;
+
+console.log(responses);
 
 
 
