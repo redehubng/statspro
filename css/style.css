@@ -125,7 +125,9 @@ h4{
 
 
 /* Footer */
-
+.jsmaps-text{
+    display: none !important;
+}
 
 
 
