@@ -22,9 +22,8 @@
 </head>
 
 <body>
-
-
-  <div id="app">
+  
+    <div id="app">
       <!-- Navigation -->
       <nav class="navigation">
         <div class="container">
@@ -87,7 +86,7 @@
       </section>
       
 
-
+      
 
   </div>
   
@@ -153,8 +152,6 @@ let dataSetType= Object.keys(dummy.nigeria);
 let generateChart = (state)=>{
   data = Object.values(dummy[state]);
   dataSetType = Object.keys(dummy[state]);
-  console.log(data);
-  console.log(dataSetType);
   startChart();
 }
 
@@ -221,6 +218,7 @@ startChart();
 
 
 
+ 
 <!-- Map js -->
 
   <script type="text/javascript">
@@ -228,7 +226,11 @@ startChart();
     $(function() {
       
       $('#nigeria-map').JSMaps({
-        map: 'nigeria'
+        map: 'nigeria',
+        onStateClick: function(data){
+          console.log(data.name);
+        }
+
       });
 
     });

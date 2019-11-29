@@ -150,7 +150,7 @@ h4{
 }
 
 .map-wrapper .map{
-    height: 350px;
+    /* height: 350px; */
 }
 
 .chart-wrapper .chart{
@@ -159,7 +159,9 @@ h4{
 }
 
 /* Footer */
-
+.jsmaps-text{
+    display: none !important;
+}
 
 
 
