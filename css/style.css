@@ -1,3 +1,20 @@
+:root{
+    --primary: #0C482B;
+    --secondary: #15B6DA;
+    --lightfill: #F1F4F2;
+    --gray-1: #333333;
+    --gray-2: #4f4f4f;
+    --gray-3: #828282;
+    --white: #fff;
+
+    /* typography */
+    --h1: 64px;
+    --h2: 40px;
+    --h3: 28px;
+    --h4: 20px;
+    --text: 16px;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -5,26 +22,110 @@
 }
 
 html{
-    
-    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
 }
 
-.chartVp{
+body{
+    font-family: 'Nunito', sans-serif;
+    /* background-color: var(--primary); */
+}
+
+
+/* typography */
+h1,h2,h3,h4{
+    color: var(--gray-1);
+}
+h1{
+    font-size: var(--h1);
+    line-height: calc(1.4 * 64px);
+}
+h2{
+    font-size: var(--h2);
+}
+h3{
+    font-size: var(--h3);
+}
+h4{
+    font-size: var(--h4);
+}
+.text{
+    font-size: var(--text);
+    line-height: calc(1.4 * 16px);
+}
+
+
+
+/* Navigation */
+
+.navigation{
+       background: var(--lightfill);
+       
+}
+.navigation .navigation-wrap{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 160px;
 }
 
-.chartVp--max{
-    width: 60%;
-    background: #000;
+.navigation-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
 }
 
-.chartVp--min{
-    width: 40%;
+.navigation li { margin-right: 26px; }
+
+.navigation li a{
+    color: var var(--gray-3);
+    text-decoration: none;
 }
-.chartVp--min-details{
-    width: 80%;
-    height: 78%;
-    margin: 11% auto;
+
+.navigation li:last-child{
+    margin-right: 0;
 }
+
+
+
+
+
+/* Hero */
+
+#hero{
+    height: 65vh;
+    width: 100%
+}
+.hero-section{
+    background: linear-gradient(0deg, rgba(12, 72, 43, 0.65), rgba(12, 72, 43, 0.65)), url(../images/hero.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.hero-section .primary-heading{
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-section .sub-heading{
+    color: var(--white);
+    text-align: center;
+}
+
+/* Map and chart */
+
+
+
+
+/* Footer */
+
+
+
 

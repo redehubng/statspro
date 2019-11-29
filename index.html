@@ -1,16 +1,20 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <title>JSMaps - Responsive Javascript Maps</title>
-  <meta name="description" content="JSMaps - Responsive Javascript Maps - http://jsmaps.io">
-  <meta name="author" content="LGLab">
+  <title>Statspro - showing poverty rate</title>
+  <meta name="description" content="showing poverty rate of people living below $1 in Nigeria from 2004 to 2019">
+  <meta name="author" content="Eyitene Solomon, Emmanuel Adekeye, Michael Abah">
 
-  <!-- Demo scripts -->
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito|Playfair+Display&display=swap" rel="stylesheet">
+
+
+<!-- styling -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
   integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="css/jsmaps.css" rel="stylesheet" type="text/css" />
+
   <link rel="stylesheet" href="css/style.css">
   
   <!-- End Map scripts -->
@@ -19,15 +23,52 @@
 
 <body>
   
-  <div class="container">
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="navigation">
+        <div class="container">
+          <div class="navigation-wrap">
+            <a href="index.html" class="Navigation-brand"><img src="images/statpro logo-01.png" alt="Logo"></a>
+            <ul class="navigation-menu">
+              <li><a href="">Data Portal</a></li>
+              <li><a href="">FAQ</a></li>
+              <li><a href="">Instruction</a></li>
+            </ul>
+          </div>
+        </div>
+        
+      </nav>
+
+
+      <!-- Hero -->
+      <div id="hero" class="hero-section">
+          <h1 class="primary-heading">Nigerian statistics</h1>
+          <p class="sub-heading text">showing statistics of people living under $1 from <br> 2001-2019</p>
+      </div>
+
+      <!-- Map and Chart -->
+
+      <div class="container">
     
-    <!-- Map html - add the below to your page -->
-    <div class="jsmaps-wrapper" id="nigeria-map"></div>
-    <!-- End Map html -->
+        <!-- Map html - add the below to your page -->
+        <div class="jsmaps-wrapper" id="nigeria-map"></div>
+        <!-- End Map html -->
+      </div>
+
   </div>
-
-
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- <div class="jsmaps-wrapper" id="nigeria-map"></div> -->
+  <!-- <div class="chartVp--min-details">
+    <canvas id="myChart" width="400" height="400"></canvas>
+  </div> -->
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
   <script src="js/vendor/jsmaps-libs.js" type="text/javascript"></script>
