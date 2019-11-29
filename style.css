@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    
+    font-size: 62.5%;
+}
+
+.chartVp{
+    display: flex;
+    justify-content: space-between;
+}
+
+.chartVp--max{
+    width: 60%;
+    background: #000;
+}
+
+.chartVp--min{
+    width: 40%;
+}
+.chartVp--min-details{
+    width: 80%;
+    height: 78%;
+    margin: 11% auto;
+}
+
