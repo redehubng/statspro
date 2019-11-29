@@ -2,6 +2,7 @@ window.JSMaps.maps.nigeria = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 565.500,
+		"strokeColor" : "#ffffff",
 		"displayAbbreviations": false,
 		"defaultText": "<h1>Nigeria</h1><br /><p>Nigeria, an African country on the Gulf of Guinea, has many natural landmarks and wildlife reserves. Protected areas such as Cross River National Park and Yankari National Park have waterfalls, dense rainforest, savanna and rare primate habitats. One of the most recognizable sites is Zuma Rock, a 725m-tall monolith outside the capital of Abuja that’s pictured on the national currency.</p>"
 	},
