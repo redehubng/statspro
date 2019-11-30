@@ -139,9 +139,10 @@
 <script>
 
 const url = window.location;
+console.log(url);
 
 let json = {};
-let response = fetch(url+'/js/data.json')
+let response = fetch('./js/data.json')
 .then(response => response.json())
 .then(function(result){
    
