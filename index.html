@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  
+
     <div id="app">
       <!-- Navigation -->
       <nav class="navigation">
@@ -76,7 +76,7 @@
                           </div>
   
                           <div class="p-4">
-                            <button class="btn btn-outline-fine float-right py-2">compare statistics</button>
+                            <button class="btn btn-outline-fine float-right py-2" data-toggle="modal" data-target="#exampleModalScrollable" >compare statistics</button>
                           </div>
                       </div>
                 </div>
@@ -86,6 +86,58 @@
         
       </section>
       
+<section>
+    <!-- compare section -->
+     <!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+          <select class="browser-default w-50 mx-auto custom-select">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-6">
+                
+            </div>
+            <div class="col-6"></div>
+          </div>
+
+          <div class="row">
+            <canvas id="modalChart" width="80%" ></canvas>
+          </div>
+        </div>
+        <div class="p-3">
+          <div class="row">
+            <div class="col-8">
+              Helloworld
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+    <!-- end of compare -->
+</section>
+
+
+
 
       <!-- Footer -->
       <footer class="footer">
@@ -135,11 +187,12 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
  <!-- Chart js -->
 
-
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script>
 
 const url = window.location;
-console.log(url);
+
 
 let json = {};
 let response = fetch('./js/data.json')
@@ -250,6 +303,7 @@ startChart();
 
 
 
+
 // change chart text
 
 let updateChartText = (name)=>{
@@ -291,6 +345,51 @@ let updateChartText = (name)=>{
 
 })
 
+
+/////////////////////
+/// adding the compare modal
+////////////////////
+
+let startModalChart = ()=>{
+
+var cty = document.getElementById('modalChart').getContext('2d');
+var chart = new Chart(cty, {
+  // The type of chart we want to create
+  type: 'line',
+
+  // The data for our dataset
+  data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [{
+          label: 'My First dataset',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [0, 10, 5, 2, 20, 30, 45]
+      }]
+  },
+
+  // Configuration options go here
+  options: {}
+});
+};
+ 
+
+startModalChart();
+
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+// $('#exampleModal').on('shown.bs.modal', function (event) {
+//   var button = $(event.relatedTarget) // Button that triggered the modal
+//   var recipient = button.data('whatever') // Extract info from data-* attributes
+//   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+//   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+//   var modal = $(this)
+//   modal.find('.modal-title').text('New message to ' + recipient)
+//   modal.find('.modal-body input').val(recipient)
+// })
 </script>
 
 
