@@ -161,16 +161,16 @@ h4{
 }
 
 /* Footer */
-<<<<<<< HEAD
 
 .footer{
     height: 274px;
     text-align: center;
     padding-top: 80px;
-=======
+    background: var(--lightfill);
+}
 .jsmaps-text{
     display: none !important;
->>>>>>> 69b0a812423fe67c1ae64be34d0fc417c807c8bf
+ 
 }
 
 .footer_copyright{ padding-top: 70px;  }
