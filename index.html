@@ -1,6 +1,8 @@
+
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <title>Statspro - showing poverty rate</title>
   <meta name="description" content="showing poverty rate of people living below $1 in Nigeria from 2004 to 2019">
@@ -22,7 +24,7 @@
 </head>
 
 <body>
-  
+
     <div id="app">
       <!-- Navigation -->
       <nav class="navigation">
@@ -56,52 +58,47 @@
       <!-- Map and Chart -->
 
       <section id="map-chart">
-
-          <div class="container">
+         
+        <div class="container">
               <div class="row">
+                <div class="col-md-6 pt-5 mt-3">    
+                    <div class="map">
+                        <div class="jsmaps-wrapper" id="nigeria-map"></div>
+                    </div>
+                </div>
                 <div class="col-md-6">
-                      <div class="map-wrapper">
-                          <div class="map">
-                             <div class="jsmaps-wrapper" id="nigeria-map"></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
                       <div class="chart-wrapper">
                           <h2 class="chart-heading">Nigeria</h2>
-                          <p class="text">People living under $1 in Nigeria</p>
+                          <p class="text chart-text">People living under $1 in Nigeria</p>
                           
                           <div class="chart">
                             <canvas id="myChart"  height="200"></canvas>                            
                           </div>
-
-                          <div class="p-4">
-                            <button class="bn btn-outline-light mapper">compare statistics</button>
-                          </div>
+  
                       </div>
-                  </div>
-              </div>
+                </div>
+              </div> 
           </div>
+       
         
       </section>
-      
-
+    
       <!-- Footer -->
       <footer class="footer">
       <div class="footer_social-icon">
-      <a href=""><svg class="footer_svg" width="40" height="40" viewBox="0 0 40 40"  xmlns="http://www.w3.org/2000/svg">
+      <a href="https://twitter.com/redehubng"><svg class="footer_svg" width="40" height="40" viewBox="0 0 40 40"  xmlns="http://www.w3.org/2000/svg">
         <circle cx="20" cy="20" r="19.5" />
         <path d="M30.46 15C29.69 15.35 28.86 15.58 28 15.69C28.88 15.16 29.56 14.32 29.88 13.31C29.05 13.81 28.13 14.16 27.16 14.36C26.37 13.5 25.26 13 24 13C21.65 13 19.73 14.92 19.73 17.29C19.73 17.63 19.77 17.96 19.84 18.27C16.28 18.09 13.11 16.38 11 13.79C10.63 14.42 10.42 15.16 10.42 15.94C10.42 17.43 11.17 18.75 12.33 19.5C11.62 19.5 10.96 19.3 10.38 19V19.03C10.38 21.11 11.86 22.85 13.82 23.24C13.1907 23.4122 12.5301 23.4362 11.89 23.31C12.1616 24.1625 12.6935 24.9084 13.411 25.4429C14.1285 25.9775 14.9954 26.2737 15.89 26.29C14.3736 27.4904 12.494 28.1393 10.56 28.13C10.22 28.13 9.88 28.11 9.54 28.07C11.44 29.29 13.7 30 16.12 30C24 30 28.33 23.46 28.33 17.79C28.33 17.6 28.33 17.42 28.32 17.23C29.16 16.63 29.88 15.87 30.46 15Z"/>
         </svg></a>
 
-        <a href=""><svg class="footer_svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="https://facebook.com/redehubng"><svg class="footer_svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="20" cy="20" r="19.5" stroke="black" />
           <path
             d="M21.397 28.997V20.801H24.162L24.573 17.592H21.397V15.548C21.397 14.622 21.655 13.988 22.984 13.988H24.668V11.127C23.8486 11.0392 23.025 10.9968 22.201 11C19.757 11 18.079 12.492 18.079 15.231V17.586H15.332V20.795H18.085V28.997H21.397Z"
              />
         </svg></a>
 
-        <a href=""><svg class="footer_svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="https://instagram.com/redehubng"><svg class="footer_svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="20" cy="20" r="19.5" stroke="black" />
           <path
             d="M19.999 16.377C18.7726 16.377 17.5965 16.8641 16.7293 17.7313C15.8622 18.5985 15.375 19.7746 15.375 21.001C15.375 22.2273 15.8622 23.4034 16.7293 24.2706C17.5965 25.1378 18.7726 25.625 19.999 25.625C21.2254 25.625 22.4015 25.1378 23.2687 24.2706C24.1358 23.4034 24.623 22.2273 24.623 21.001C24.623 19.7746 24.1358 18.5985 23.2687 17.7313C22.4015 16.8641 21.2254 16.377 19.999 16.377ZM19.999 24.004C19.2023 24.004 18.4382 23.6875 17.8749 23.1241C17.3115 22.5607 16.995 21.7967 16.995 21C16.995 20.2032 17.3115 19.4392 17.8749 18.8758C18.4382 18.3124 19.2023 17.996 19.999 17.996C20.7957 17.996 21.5598 18.3124 22.1231 18.8758C22.6865 19.4392 23.003 20.2032 23.003 21C23.003 21.7967 22.6865 22.5607 22.1231 23.1241C21.5598 23.6875 20.7957 24.004 19.999 24.004Z"
@@ -118,23 +115,14 @@
       </div>
 
       <div class="footer_copyright">
-        <h4><span class="footer_copyright--bold"><a href="index.html">Redehubng</a></span> &copy; 2016 &mdash; 2019 Privacy &mdash;Terms</h4>
+        <!-- <h4><span class="footer_copyright--bold"><a href="index.html">Redehubng</a></span> &copy; 2016 &mdash; 2019 Privacy &mdash;Terms</h4> -->
+        <p class="h5">Made with <span style="color: #f00">❤</span> By <a href="https://redehub.com.ng">Redehubng</a></p>
       </div>
       </footer>
       
 
   </div>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- <div class="chartVp--min-details">
-  </div> -->
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
   <script src="js/vendor/jsmaps-libs.js" type="text/javascript"></script>
@@ -143,97 +131,117 @@
   <script src="js/vendor/nigeria.js" type="text/javascript"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
  <!-- Chart js -->
- <script>
+
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+
+const url = window.location;
+
+
+let json = {};
+let response = fetch('./js/data.json')
+.then(response => response.json())
+.then(function(result){
+   
+  
+   // for filtering based on predicate
+   Object.filter = (obj, predicate) => 
+    Object.keys(obj)
+          .filter( key => predicate(obj[key]) )
+          .reduce( (res, key) => (res[key] = obj[key], res), {} );
+
+    nigeria_data = Object.filter(result.Nigeria, data => data > 0 )     
+
+    let data = Object.values(nigeria_data);
+    let pointColor= data.map(item => {
+        return '#A6CEE3'
+    });
+
+    
+    let dataSetType= Object.keys(nigeria_data);
+    
+    
+    // Function to generate chart
+    let generateChart = (state)=>{
+      state_data = Object.filter(result[state], data => data > 0 )
+    
+      data = Object.values(state_data);
+      dataSetType = Object.keys(state_data);
+      console.log(typeof dataSetType);
+      startChart();
+    }
 
 
 
-// point color;
-
-let dummy = {
-  nigeria: {
-    '2019': '10',
-    '2016': '80',
-    '2015': '60',
-    '2014': '40',
-    '2013': '20',
-  },
-  kaduna: {
-    '2019': '70',
-    '2016': '55',
-    '2015': '60',
-    '2014': '40',
-    '2013': '20',
-  },
-  kogi: {
-    '2019': '10%',
-    '2016': '55%',
-    '2015': '60%',
-    '2014': '40%',
-    '2013': '20%',
-  }
-
-}
-
-// console.log(dummy.Nigeria);
-
-
-let data = Object.values(dummy.nigeria);
-let pointColor= data.map(item => {
-    return '#A6CEE3'
-});
-let dataSetType= Object.keys(dummy.nigeria);
-
-
-let generateChart = (state)=>{
-  data = Object.values(dummy[state]);
-  dataSetType = Object.keys(dummy[state]);
-  startChart();
-}
-
-
-let btn = document.querySelector('.mapper');
-btn.addEventListener('click', () => {
-  let state = 'kaduna';
-  generateChart(state);
-});
-// let state = 'kaduna';
 
 
 
+
+
+// function to filter data from array
+// function filterJson(spec){
+//   return dummy2.filter(item => item.state == spec);
+// }
+
+
+// let ng = filterJson('nigeria')
+// let data = Object.values(ng[0]);
+
+// let pointColor= data.map(item => {
+//     return '#A6CEE3'
+// });
+// let dataSetType= Object.keys(ng[0]);
+
+// // Function to generate chart
+// let generateChart = (state)=>{
+//   // let place = filterJson(place);
+//   data = Object.values(state[0]);
+//   dataSetType = Object.keys(state[0]);
+//   startChart();
+// }
+
+
+
+
+
+    // Start chart function
 let startChart = ()=>{
 
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-     type: 'line',
-     data: {
-         labels: dataSetType,
-         datasets: [{
-           label: '# of Votes',
-             data: data,
-             backgroundColor: [
-                 'rgba(0,0,0,.0)',
-                
-               ],
-             borderColor: '#15B6DA',
-             pointBackgroundColor: pointColor,
-             borderWidth: 1
-         }]
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+   type: 'line',
+   data: {
+       labels: dataSetType,
+       datasets: [{
+         label: '% of poverty',
+         data: data,
+         backgroundColor: [
+               'rgba(0,0,0,.0)',
+               
+              ],
+           borderColor: '#15B6DA',
+           pointBackgroundColor: pointColor,
+           borderWidth: 1
+          }]
+   },
+   options: {
+     legend: {
+        display: false
      },
-     options: {
-         scales: {
-             yAxes: [{
-                 ticks: {
-                     beginAtZero: true,
-                     max: 100
-                 }
-             }]
-         }
-     }
- });
+       scales: {
+           yAxes: [{
+               ticks: {
+                   beginAtZero: true,
+                   max: 100
+               }
+           }]
+       }
+   }
+});
 }
 
 startChart();
-  </script>
 
 
 
@@ -241,36 +249,50 @@ startChart();
 
 
 
+// change chart text
+
+let updateChartText = (name)=>{
+
+    const heading = $('.chart-heading');
+    const text = $('.chart-text');
+
+    heading.text(name);
+    text.text(
+      `People living under $1 in ${name}`
+    )
+
+  
+}
 
 
 
-
-
-
-
-
-
-
-
-
- 
-<!-- Map js -->
-
-  <script type="text/javascript">
-
+// Map
+  
     $(function() {
       
       $('#nigeria-map').JSMaps({
-        map: 'nigeria',
-        onStateClick: function(data){
-          console.log(data.name);
-        }
+          map: 'nigeria',
+          stateClickAction: 'none',
+          onStateClick: function(data){
+            // let place = filterJson(data.name.toLowerCase());
+            // generateChart(place);
+            generateChart(data.name);
+          
+            console.log(data.name);
+
+            updateChartText(data.name);
+          }
 
       });
 
     });
     
-  </script>
+
+})
+</script>
+
+
+
   
 </body>
 
